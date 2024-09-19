@@ -5809,6 +5809,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352533078}
   - component: {fileID: 1352533079}
+  - component: {fileID: 1352533080}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -5854,6 +5855,22 @@ MonoBehaviour:
   maxZoomDistance: 80
   initialXAngle: 30
   initialYAngle: 0
+--- !u!114 &1352533080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352533076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1c9c7671ea5f746b55a8f76a8f1b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefab: {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
+  numberOfAsteroids: 10
+  minDistance: 5
+  maxDistance: 20
 --- !u!1 &1778536862 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8732253722681417412, guid: 4a44e7ddd5d26154cb1e23c0c3a2addb, type: 3}
