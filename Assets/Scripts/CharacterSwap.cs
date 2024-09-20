@@ -7,6 +7,7 @@ public class CharacterSwap : MonoBehaviour
 
     private PlayerMovement shipMovement;
     private PlayerMovement playerMovement;
+    private CameraRotator cameraRotator;
 
     void Start()
     {
@@ -14,6 +15,7 @@ public class CharacterSwap : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
         player.gameObject.SetActive(false);
         playerMovement.enabled = false;
+        cameraRotator = GetComponent<CameraRotator>();
     }
 
     void Update()
@@ -36,6 +38,15 @@ public class CharacterSwap : MonoBehaviour
         {
             player.gameObject.SetActive(!player.gameObject.activeSelf);
             playerMovement.enabled = !playerMovement.enabled;
+
+            if (playerMovement.enabled)
+            {
+                cameraRotator.target = player;
+            }
+            else
+            {
+                cameraRotator.target = ship;
+            }
         }
     }
 }

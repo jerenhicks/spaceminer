@@ -175,4 +175,9 @@ public class CameraRotator : MonoBehaviour
         }
         mainCamera.transform.position = new Vector3(0, 0, -distanceBetweenCameraAndTarget);
     }
+
+    public void SetNewTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 }
