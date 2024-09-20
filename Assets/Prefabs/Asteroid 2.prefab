@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5499024}
   - component: {fileID: 11421226}
   - component: {fileID: 8330328897327364522}
+  - component: {fileID: -7427761341501690081}
   m_Layer: 0
   m_Name: Asteroid 2
   m_TagString: Enemy
@@ -183,6 +184,20 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
+--- !u!114 &-7427761341501690081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dcb01d1e96a2624b96a0254286b11ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidName: 
+  asteroidType: 
 --- !u!1 &146874
 GameObject:
   m_ObjectHideFlags: 0

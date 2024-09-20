@@ -62,6 +62,13 @@ public class GameLoad : MonoBehaviour
             // Randomly scale the asteroid
             float scale = Random.Range(minScale, maxScale);
             asteroid.transform.localScale = new Vector3(scale, scale, scale);
+
+            AsteroidInfo asteroidInfo = asteroid.GetComponent<AsteroidInfo>();
+            if (asteroidInfo != null)
+            {
+                asteroidInfo.name = GenerateRandomAsteroidName();
+                asteroidInfo.type = PickRandomAsteroidType();
+            }
         }
     }
 
@@ -80,5 +87,36 @@ public class GameLoad : MonoBehaviour
             default:
                 return asteroidOnePrefab; // Fallback, should never reach here
         }
+    }
+
+    // Method to generate a random asteroid name
+    string GenerateRandomAsteroidName()
+    {
+        const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const string alphanumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        string randomLetters = new string(new char[] {
+            letters[Random.Range(0, letters.Length)],
+            letters[Random.Range(0, letters.Length)]
+        });
+
+        string randomAlphanumeric = new string(new char[] {
+            alphanumeric[Random.Range(0, alphanumeric.Length)],
+            alphanumeric[Random.Range(0, alphanumeric.Length)],
+            alphanumeric[Random.Range(0, alphanumeric.Length)],
+            alphanumeric[Random.Range(0, alphanumeric.Length)],
+            alphanumeric[Random.Range(0, alphanumeric.Length)],
+            alphanumeric[Random.Range(0, alphanumeric.Length)]
+        });
+
+        return $"{randomLetters}-{randomAlphanumeric}";
+    }
+
+    // Method to randomly pick an asteroid type
+    string PickRandomAsteroidType()
+    {
+        string[] types = { "Ice", "Iron Rich", "Exotic" };
+        int randomIndex = Random.Range(0, types.Length);
+        return types[randomIndex];
     }
 }

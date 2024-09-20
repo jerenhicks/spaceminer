@@ -4,5 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/SlimUI/Modern Menu 1/Scenes/Demos/Demo1.unity
+    guid: 829a86ba161cdd840842063447f41aab
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

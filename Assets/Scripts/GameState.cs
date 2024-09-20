@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
     [SerializeField]
     GameObject pauseMenu;
     public static bool isPaused = false;
+    public static GameObject selectedObject = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,5 +42,15 @@ public class GameState : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

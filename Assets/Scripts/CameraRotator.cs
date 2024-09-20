@@ -81,7 +81,7 @@ public class CameraRotator : MonoBehaviour
         }
         if (rotateMethod == RotateMethod.Mouse)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 rotX += -Input.GetAxis("Mouse Y") * mouseRotateSpeed; // around X
                 rotY += Input.GetAxis("Mouse X") * mouseRotateSpeed;

@@ -9,6 +9,8 @@ public class PlayerHud : MonoBehaviour
     [Header("UI")]
     [SerializeField]
     public Text speedLabel;
+    [SerializeField]
+    public Text targetLabel;
     private float speed = 0.0f;
 
     private void Update()
@@ -17,6 +19,20 @@ public class PlayerHud : MonoBehaviour
         if (speedLabel != null)
         {
             speedLabel.text = "Speed: " + speed.ToString("F2") + " km/h";
+        }
+
+        if (targetLabel != null)
+        {
+            string targetName = "None";
+            if (GameState.selectedObject != null)
+            {
+                AsteroidInfo asteroidInfo = GameState.selectedObject.GetComponent<AsteroidInfo>();
+                if (asteroidInfo != null)
+                {
+                    targetName = asteroidInfo.name;
+                }
+            }
+            targetLabel.text = "Target: " + targetName;
         }
     }
 }
