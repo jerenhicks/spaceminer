@@ -30,10 +30,15 @@ public class PlayerSpaceship : MonoBehaviour
     ParticleSystem engineOne;
     [SerializeField]
     ParticleSystem engineTwo;
+    [SerializeField]
+    GameObject gamestateObj;
+
+    private GameState gameState;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameState = gamestateObj.GetComponent<GameState>();
         //Cursor.lockState = CursorLockMode.Locked;
         spaceshipRB = GetComponent<Rigidbody>();
         engineOne.Stop();
@@ -44,7 +49,6 @@ public class PlayerSpaceship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         verticalMove = Input.GetAxis("Vertical");
         horizontalMove = Input.GetAxis("Horizontal");
         rollInput = Input.GetAxis("Roll");

@@ -43,6 +43,10 @@ public class CameraRotator : MonoBehaviour
     private float rotX; // around x
     private float rotY; // around y
 
+    //GameObject gamestateObj;
+
+    private GameState gameState;
+
     private void Awake()
     {
         if (mainCamera == null)
@@ -64,11 +68,17 @@ public class CameraRotator : MonoBehaviour
         Quaternion initialRotation = Quaternion.Euler(rotX, rotY, 0);
         mainCamera.transform.position = target.position + initialRotation * new Vector3(0, 0, -distanceBetweenCameraAndTarget);
         mainCamera.transform.LookAt(target.position);
+
+        gameState = GetComponent<GameState>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameState.isPaused)
+        {
+            return;
+        }
         if (rotateMethod == RotateMethod.Mouse)
         {
             if (Input.GetMouseButton(0))
