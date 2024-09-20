@@ -15,17 +15,6 @@ public class PlayerSpaceship : MonoBehaviour
     float pitchUpDownInput;
     float pitchLeftRightInput;
 
-    //Speed Multipliers
-    [SerializeField]
-    float speedMultiplier = 1.0f;
-    [SerializeField]
-    float speedMultiplierAngle = 0.5f;
-    [SerializeField]
-    float speedRollMultiplierAngle = 0.05f;
-    [SerializeField]
-    float speedPitchUpDownMultiplier = 0.5f;
-    [SerializeField]
-    float speedPitchLeftRightMultiplier = 0.5f;
     [SerializeField]
     ParticleSystem engineOne;
     [SerializeField]
@@ -39,7 +28,6 @@ public class PlayerSpaceship : MonoBehaviour
     void Start()
     {
         gameState = gamestateObj.GetComponent<GameState>();
-        //Cursor.lockState = CursorLockMode.Locked;
         spaceshipRB = GetComponent<Rigidbody>();
         engineOne.Stop();
         engineTwo.Stop();
@@ -58,19 +46,6 @@ public class PlayerSpaceship : MonoBehaviour
 
     void FixedUpdate()
     {
-        spaceshipRB.AddForce(spaceshipRB.transform.TransformDirection(Vector3.forward) * verticalMove * speedMultiplier, ForceMode.VelocityChange);
-        spaceshipRB.AddForce(spaceshipRB.transform.TransformDirection(Vector3.right) * horizontalMove * speedMultiplier, ForceMode.VelocityChange);
-
-        spaceshipRB.AddTorque(spaceshipRB.transform.right * pitchUpDownInput * speedPitchUpDownMultiplier, ForceMode.VelocityChange);
-        spaceshipRB.AddTorque(spaceshipRB.transform.up * pitchLeftRightInput * speedPitchLeftRightMultiplier, ForceMode.VelocityChange);
-        spaceshipRB.AddTorque(spaceshipRB.transform.forward * speedRollMultiplierAngle * rollInput, ForceMode.VelocityChange);
-
-        // Cap the speed
-        float maxSpeed = 10.0f; // Set your desired max speed here
-        if (spaceshipRB.linearVelocity.magnitude > maxSpeed)
-        {
-            spaceshipRB.linearVelocity = spaceshipRB.linearVelocity.normalized * maxSpeed;
-        }
 
         // Play or stop particle systems based on forward motion input
         if (verticalMove > 0)
