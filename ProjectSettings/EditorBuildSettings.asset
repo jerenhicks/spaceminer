@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7fcb8656ba567fb4ca654e63f16596c0
+  - enabled: 1
     path: Assets/Scenes/spaceminer.unity
     guid: db3e1acb016c8084e91915b7344b16f7
   m_configObjects: {}
