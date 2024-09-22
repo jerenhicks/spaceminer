@@ -17,8 +17,6 @@ public class CharacterSwap : MonoBehaviour
     {
         shipMovement = ship.GetComponent<PlayerMovement>();
         playerMovement = player.GetComponent<PlayerMovement>();
-        player.gameObject.SetActive(false);
-        playerMovement.enabled = false;
         cameraRotator = gameState.GetComponent<CameraRotator>();
     }
 
@@ -43,16 +41,22 @@ public class CharacterSwap : MonoBehaviour
 
         if (playerMovement != null)
         {
+            // Move the player to the position of the first hatch if there are any hatches
+            if (hatches.Count > 0)
+            {
+                player.position = hatches[0].transform.position;
+            }
+
             player.gameObject.SetActive(!player.gameObject.activeSelf);
             playerMovement.enabled = !playerMovement.enabled;
 
             if (playerMovement.enabled)
             {
-                cameraRotator.target = player;
+                cameraRotator.SetTarget(player);
             }
             else
             {
-                cameraRotator.target = ship;
+                cameraRotator.SetTarget(ship);
             }
         }
     }
@@ -61,7 +65,6 @@ public class CharacterSwap : MonoBehaviour
     {
         foreach (GameObject hatch in hatches)
         {
-            Debug.Log("Distance: " + Vector3.Distance(player.position, hatch.transform.position));
             if (Vector3.Distance(player.position, hatch.transform.position) <= distanceToHatch)
             {
                 return true;

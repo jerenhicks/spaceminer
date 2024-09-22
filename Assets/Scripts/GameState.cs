@@ -8,10 +8,21 @@ public class GameState : MonoBehaviour
     public static bool isPaused = false;
     public static GameObject selectedObject = null;
 
+    public GameObject player;
+    public GameObject playerCorvette;
+    public GameObject playerFighter;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pauseMenu.SetActive(false);
+        player.gameObject.SetActive(false);
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        playerMovement.enabled = false;
+
+        PlayerMovement fighterMovement = playerFighter.GetComponent<PlayerMovement>();
+        fighterMovement.enabled = false;
     }
 
     // Update is called once per frame
@@ -46,6 +57,7 @@ public class GameState : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        isPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 

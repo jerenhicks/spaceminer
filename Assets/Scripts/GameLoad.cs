@@ -59,6 +59,8 @@ public class GameLoad : MonoBehaviour
             GameObject asteroid = Instantiate(selectedPrefab, position, Quaternion.identity);
             asteroid.transform.parent = asteroidsParent.transform;
 
+            asteroid.tag = "Selectable";
+
             // Randomly scale the asteroid
             float scale = Random.Range(minScale, maxScale);
             asteroid.transform.localScale = new Vector3(scale, scale, scale);
