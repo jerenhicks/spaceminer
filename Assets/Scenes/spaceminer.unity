@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 29941885}
   - component: {fileID: 29941886}
   - component: {fileID: 29941887}
+  - component: {fileID: 29941888}
   m_Layer: 0
   m_Name: PlayerFighter
   m_TagString: Untagged
@@ -150,8 +151,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1021234611}
   - {fileID: 483855645}
+  - {fileID: 1021234611}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &29941885
@@ -169,8 +170,8 @@ MonoBehaviour:
   speedMultiplier: 1
   speedMultiplierAngle: 0.5
   speedRollMultiplierAngle: 0.05
-  speedPitchUpDownMultiplier: 0.1
-  speedPitchLeftRightMultiplier: 0.1
+  speedPitchUpDownMultiplier: 0.05
+  speedPitchLeftRightMultiplier: 0.05
   gamestateObj: {fileID: 29941882}
 --- !u!54 &29941886
 Rigidbody:
@@ -217,6 +218,23 @@ MonoBehaviour:
   - {fileID: 483855644}
   distanceToHatch: 10
   gameState: {fileID: 1352533082}
+--- !u!114 &29941888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29941882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7169f85efbe2c449b51cb3c1f99b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laser: {fileID: 1558689452176750, guid: 9bd48cc74f28f5e43a9ae8d07e50802e, type: 3}
+  playerFirePoints:
+  - {fileID: 1922458997}
+  targetPoint: {fileID: 1922458996}
+  laserSize: 1
 --- !u!1001 &80552968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +310,16 @@ PrefabInstance:
 --- !u!1 &80552969 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1723027842476556422, guid: 4a44e7ddd5d26154cb1e23c0c3a2addb, type: 3}
+  m_PrefabInstance: {fileID: 80552968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &80552971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 553261832039068492, guid: 4a44e7ddd5d26154cb1e23c0c3a2addb, type: 3}
+  m_PrefabInstance: {fileID: 80552968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &80552972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4915499332420857348, guid: 4a44e7ddd5d26154cb1e23c0c3a2addb, type: 3}
   m_PrefabInstance: {fileID: 80552968}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &117467887
@@ -1044,8 +1072,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483855644}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 10.17}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0, z: 10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2083,6 +2111,7 @@ GameObject:
   - component: {fileID: 1174466118}
   - component: {fileID: 1174466119}
   - component: {fileID: 1174466120}
+  - component: {fileID: 1174466121}
   m_Layer: 0
   m_Name: PlayerCorvette
   m_TagString: Untagged
@@ -2186,6 +2215,24 @@ MonoBehaviour:
   - {fileID: 80552969}
   distanceToHatch: 4
   gameState: {fileID: 1352533082}
+--- !u!114 &1174466121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174466115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7169f85efbe2c449b51cb3c1f99b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laser: {fileID: 1369138054474810, guid: 4bb11c51e2a790241a4a4d63267c78f8, type: 3}
+  playerFirePoints:
+  - {fileID: 80552972}
+  - {fileID: 1471208771}
+  targetPoint: {fileID: 80552971}
+  laserSize: 3
 --- !u!1 &1187904257
 GameObject:
   m_ObjectHideFlags: 0
@@ -7298,6 +7345,11 @@ MonoBehaviour:
   player: {fileID: 577759004}
   playerCorvette: {fileID: 1174466115}
   playerFighter: {fileID: 29941882}
+--- !u!1 &1471208771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1639846035669859953, guid: 4a44e7ddd5d26154cb1e23c0c3a2addb, type: 3}
+  m_PrefabInstance: {fileID: 80552968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1604373371
 GameObject:
   m_ObjectHideFlags: 0
@@ -12604,6 +12656,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1021234612}
   m_SourcePrefab: {fileID: 100100000, guid: 64aabf49237bfe64c9e0b599abb19f4d, type: 3}
+--- !u!1 &1922458996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5895545994514216921, guid: 64aabf49237bfe64c9e0b599abb19f4d, type: 3}
+  m_PrefabInstance: {fileID: 1922458995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1922458997 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6681430511159286467, guid: 64aabf49237bfe64c9e0b599abb19f4d, type: 3}
+  m_PrefabInstance: {fileID: 1922458995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092357681
 GameObject:
   m_ObjectHideFlags: 0

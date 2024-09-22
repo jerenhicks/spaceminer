@@ -10,12 +10,14 @@ public class CharacterSwap : MonoBehaviour
     public GameState gameState;
 
     private PlayerMovement shipMovement;
+    private ShipWeapons shipWeapons;
     private PlayerMovement playerMovement;
     private CameraRotator cameraRotator;
 
     void Start()
     {
         shipMovement = ship.GetComponent<PlayerMovement>();
+        shipWeapons = ship.GetComponent<ShipWeapons>();
         playerMovement = player.GetComponent<PlayerMovement>();
         cameraRotator = gameState.GetComponent<CameraRotator>();
     }
@@ -37,6 +39,7 @@ public class CharacterSwap : MonoBehaviour
         {
             //ship.gameObject.SetActive(!ship.gameObject.activeSelf);
             shipMovement.enabled = !shipMovement.enabled;
+            shipWeapons.enabled = !shipWeapons.enabled;
         }
 
         if (playerMovement != null)

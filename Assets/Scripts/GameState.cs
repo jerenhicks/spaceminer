@@ -23,6 +23,8 @@ public class GameState : MonoBehaviour
 
         PlayerMovement fighterMovement = playerFighter.GetComponent<PlayerMovement>();
         fighterMovement.enabled = false;
+        ShipWeapons fighterWeapons = playerFighter.GetComponent<ShipWeapons>();
+        fighterWeapons.enabled = false;
     }
 
     // Update is called once per frame

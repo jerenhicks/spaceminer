@@ -31,7 +31,6 @@ public class PlayerSpaceship : MonoBehaviour
         spaceshipRB = GetComponent<Rigidbody>();
         engineOne.Stop();
         engineTwo.Stop();
-
     }
 
     // Update is called once per frame
@@ -42,6 +41,7 @@ public class PlayerSpaceship : MonoBehaviour
         rollInput = Input.GetAxis("Roll");
         pitchUpDownInput = Input.GetAxis("PitchUpDown");
         pitchLeftRightInput = Input.GetAxis("PitchLeftRight");
+
     }
 
     void FixedUpdate()
